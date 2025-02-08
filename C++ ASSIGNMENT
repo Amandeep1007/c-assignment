@@ -159,6 +159,158 @@ int main() {
    return 0;
   }
 
+3.write a programme that
+a.reads string from user
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string input;
+    cout << "Please enter : ";
+    getline(cin, input);
+    cout << "You have entered ,  " << input << endl;
+    return 0;
+}
+b.checks weather string is paalindrome
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Please enter a string: ";
+    getline(cin, input);
+
+    bool isPalindrome = true;
+    for (int i = 0; i < input.length() / 2; i++) {
+        if (input[i] != input[input.length() - 1 - i]) {
+            isPalindrome = false;
+            break;
+        }
+    }
+
+    cout << "\"" << input << "\" is " << (isPalindrome ? "" : "not ") << "a palindrome." << endl;
+    return 0;
+}
+
+
+c.counts and displays frequency fo each character in the string
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string input;
+    int frequency[26] = {0}; // (assumed lowercase only)
+
+    cout << "Please enter : ";
+    getline(cin, input);
+    for (char c : input) {
+        if (isalpha(c)) {
+            c = tolower(c);
+            frequency[c - 'a']++;
+        }
+    }
+    cout << "Character frequency (case insensitive):" << endl;
+    for (int i = 0; i < 26; i++) {
+        if (frequency[i] > 0) {
+            cout << char('a' + i) << ": " << frequency[i] << endl;
+        }
+    }
+
+    return 0;
+  }
+
+d.replace all the characters in string
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Please enter : ";
+    getline(cin, input);
+    for (char &c : input) {
+        c = tolower(c);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            c = '%';
+        }
+    }
+    cout << "Modified string: " << input << endl;
+return 0;
+}
+
+
+
+4.print a spiral number pattern of size n(matrix of size 4x4)
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout<<"Enter the value  of n for matrix: ";
+    cin >> n;
+    int matrix[n][n];
+    int number = 1;
+    for (int i = 0; i < n; i++)
+
+   {
+        for (int j = 0; j < n; j++) {
+            matrix[i][j] = number++;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
+5.rotate a square matrix by 90 degrees
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the value of n for matrix:";
+    cin >> n;
+
+    int matrix[n][n];
+    int rotatedMatrix[n][n];
+    int number = 1;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            matrix[i][j] = number++;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            rotatedMatrix[j][n - 1 - i] = matrix[i][j];
+        }
+    }
+    cout << " 90 degrees" << endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << rotatedMatrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+ 
+
+
 
 
 
