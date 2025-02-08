@@ -1,0 +1,164 @@
+1. write a c++ program to take a positive integernn as input 
+a. check weather n is prime number 
+
+
+#include <iostream>
+using namespace std;
+int main(){
+int num;
+  cout<<"enter the num ";
+  cin>>num;
+  for (int i=2;i<num;i++){
+     if (num%i==0){
+      cout<<"it is not a prime num"<<endl;
+      return 0;
+  }
+ }
+cout<< "it is a prime num";       
+
+  return 0;
+}
+
+b.write a c++ program to take a positive integernn as input 
+if it is not prime ,find all its factors 
+
+#include <iostream>
+using namespace std;
+int main(){
+  int n;
+  cout<<"enter the num";
+  cin>>n;
+  cout << "The factors of " << n << " are "<<" ";
+  int count=0;
+  for (int i=1;i<n;i++){
+    if (n%i==0){
+      cout << i << " "; 
+    count++; 
+    }
+  }
+  cout << endl;
+  return 0;
+}
+
+c.if it is prime find the next prime number greater than n
+
+#include <iostream>
+using namespace std;
+int main(){
+  int n;
+  cout<<"enter the num "<<endl;
+  cin>>n;
+  if
+   int nextPrime = n + 1;
+    while (true) {
+        int i;
+        for (i = 2; i * i <= nextPrime; i++) {
+            if (nextPrime % i == 0) break; 
+        }
+        if (i * i > nextPrime) break; 
+        nextPrime++;
+    }
+
+    cout << "Next prime num is " << nextPrime << endl;
+    return 0;
+  
+}
+
+2.write program that performs the following operatios in an array
+a.accept an integer aaray from user(size determine at runtime)
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Enter " << n << " integers: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    return 0;
+  }
+
+
+
+b. reverse the array and diplay it
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int size;
+    cout << "Enter the size of array";
+    cin >> size;
+    int *arr = new int[size];
+    cout << "Enter " << size << " integers"; 
+    for (int i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
+    cout << "You entered";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    cout << "Array in reverse order";
+    for (int i = size - 1; i >= 0; i--) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    delete[] arr;
+
+    return 0;
+}
+
+
+c. find and display the second largest and seccond smallest elements in an array
+
+#include <iostream>
+#include <limits.h>
+using namespace std;
+
+int main() {
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+
+    int *arr = new int[size];
+    cout << "Enter " << size << " integers";
+    for (int i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
+
+    int firstMax = INT_MIN, secondMax = INT_MIN;
+    int firstMin = INT_MAX, secondMin = INT_MAX;
+
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > firstMax) {
+            secondMax = firstMax;
+            firstMax = arr[i];
+        } else if (arr[i] > secondMax && arr[i] != firstMax) {
+            secondMax = arr[i];
+        }
+
+        if (arr[i] < firstMin) {
+            secondMin = firstMin;
+            firstMin = arr[i];
+        } else if (arr[i] < secondMin && arr[i] != firstMin) {
+            secondMin = arr[i];
+        }
+    }
+
+    cout << "Second largest element: " << secondMax << endl;
+    cout << "Second smallest element: " << secondMin << endl;
+
+    delete[] arr;
+   return 0;
+  }
+
+
+
+
